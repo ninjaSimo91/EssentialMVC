@@ -1,0 +1,23 @@
+# tuo_framework/public/.htaccess
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Reindirizza gli URL senza slash finale, a meno che non siano directory esistenti
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Gestisce gli header di autorizzazione
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Se la richiesta non è un file o una directory esistente...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # ...reindirizza tutto a index.php
+    RewriteRule ^ index.php [L]
+</IfModule>

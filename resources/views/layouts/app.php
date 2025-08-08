@@ -1,0 +1,8 @@
+START
+
+@yield('content')
+
+
+END
+
+

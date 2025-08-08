@@ -1,0 +1,26 @@
+{
+    "name": "ninjasimo91/essential-mvc",
+    "description": "Framework Mvc for small project",
+    "type": "framework",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "mvc"
+    ],
+    "authors": [
+        {
+            "name": "Simone Anselmo",
+            "email": "simone.anselmo@simowd.it"
+        }
+    ],
+    "require": {
+        "ninjasimo91/essential-mvc-core": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "app/Controllers/",
+            "Middlewares\\": "app/Middlewares/",
+            "Contracts\\": "app/Contracts/"
+        }
+    }
+}
